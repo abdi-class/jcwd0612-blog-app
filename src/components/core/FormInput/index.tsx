@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import React, { useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+
 interface IFormInput {
   type: string;
   name: string;

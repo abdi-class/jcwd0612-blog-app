@@ -12,14 +12,6 @@ import {
 } from "@/components/ui/select";
 import { apiCall } from "@/helper/apiCall";
 import { toast } from "react-toastify";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 import UpdateArticleDialog from "./components/UpdateArticleDialog";
 
 const PostPage: React.FunctionComponent = () => {

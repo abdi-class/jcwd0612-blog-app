@@ -2,7 +2,7 @@ import { apiCall } from "@/helper/apiCall";
 import * as React from "react";
 
 interface IArticleDetailPageProps {
-  params: { title: string };
+  params: Promise<{ title: string }>;
 }
 
 const getDetail = async (title: string) => {
@@ -18,10 +18,9 @@ const getDetail = async (title: string) => {
   }
 };
 
-const ArticleDetailPage: React.FunctionComponent<
-  IArticleDetailPageProps
-> = async (props) => {
-  const detailData = await getDetail(props.params.title);
+const ArticleDetailPage = async ({ params }: IArticleDetailPageProps) => {
+  const { title } = await params;
+  const detailData = await getDetail(title);
   return (
     <div>
       <h1 className="text-5xl">{detailData?.title}</h1>
