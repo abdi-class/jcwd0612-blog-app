@@ -42,7 +42,7 @@ const SignUpPage: React.FunctionComponent = () => {
       console.log(username, email, password);
 
       // - menyimpan data ke database backendless
-      const response = await apiCall.post("/accounts", {
+      const response = await apiCall.post("/auth/signup", {
         username,
         email,
         password,

@@ -23,15 +23,17 @@ const SignInPage: React.FunctionComponent = () => {
         alert("Isi semua form");
         return;
       }
-      const res = await apiCall.get("/accounts", {
-        params: {
-          where: `email = '${email}' AND password = '${password}'`,
-        },
+      const res = await apiCall.post("/auth/signin", {
+        email,
+        password,
       });
-      dispatch(setSignIn(res.data[0]));
+
+      console.log(res.data.result);
+
+      dispatch(setSignIn(res.data.result));
 
       // Store objectId to localStorage
-      localStorage.setItem("tkn", res.data[0].objectId);
+      localStorage.setItem("tkn", res.data.result.token);
 
       alert("Selamat datang");
       router.replace("/");

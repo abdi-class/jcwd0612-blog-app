@@ -15,7 +15,11 @@ const Navbar: React.FunctionComponent = () => {
     try {
       const tkn = localStorage.getItem("tkn");
       if (tkn) {
-        const res = await apiCall.get(`/accounts/${tkn}`);
+        const res = await apiCall.get(`/auth/keep`, {
+          headers: {
+            Authorization: `Bearer ${tkn}`,
+          },
+        });
         dispatch(setSignIn(res.data));
       }
     } catch (error) {
