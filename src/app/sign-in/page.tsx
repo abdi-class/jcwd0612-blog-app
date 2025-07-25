@@ -8,6 +8,7 @@ import { apiCall } from "@/helper/apiCall";
 import { useRouter } from "next/navigation";
 import { useAppDispatch } from "@/lib/redux/hooks";
 import { setSignIn } from "@/lib/redux/features/userSlice";
+import Link from "next/link";
 
 const SignInPage: React.FunctionComponent = () => {
   const router = useRouter();
@@ -71,7 +72,10 @@ const SignInPage: React.FunctionComponent = () => {
                 label="Password"
                 ref={passwordRef}
               />
-              <div className="flex items-center justify-end gap-4">
+              <div className="flex items-center justify-between gap-4">
+                <Link href="/forget-password">
+                  <span>Forget your password ?</span>
+                </Link>
                 <Button
                   type="button"
                   className="bg-slate-700 text-white px-4 py-2 shadow"
